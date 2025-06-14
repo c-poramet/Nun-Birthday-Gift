@@ -1,0 +1,114 @@
+/* Dark pastel minimal responsive quiz styles */
+body {
+    background: #181824;
+    color: #f3e8ff;
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    background: rgba(40, 44, 52, 0.95);
+    border-radius: 18px;
+    box-shadow: 0 4px 32px 0 rgba(80, 80, 120, 0.15);
+    padding: 2.5rem 2rem;
+    max-width: 420px;
+    width: 100%;
+    margin: 2rem auto;
+    text-align: center;
+}
+h1 {
+    text-align: center;
+    color: #b8c0ff;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.question label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #e0aaff;
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+input[type="text"], select, output {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    border: none;
+    background: #23233b;
+    color: #f3e8ff;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    box-sizing: border-box;
+}
+input[type="color"] {
+    border: none;
+    background: none;
+    width: 3rem;
+    height: 2rem;
+    padding: 0;
+    margin-bottom: 0.2rem;
+    cursor: pointer;
+}
+input[type="range"] {
+    width: 100%;
+    accent-color: #b8c0ff;
+    margin-bottom: 0.2rem;
+}
+button[type="submit"] {
+    background: linear-gradient(90deg, #b8c0ff 0%, #e0aaff 100%);
+    color: #181824;
+    border: none;
+    border-radius: 8px;
+    padding: 0.9rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: background 0.2s;
+}
+button[type="submit"]:hover {
+    background: linear-gradient(90deg, #e0aaff 0%, #b8c0ff 100%);
+}
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin: 2rem 0 1.5rem 0;
+}
+.btn {
+    display: block;
+    background: linear-gradient(90deg, #b8c0ff 0%, #e0aaff 100%);
+    color: #181824;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.btn:hover {
+    background: linear-gradient(90deg, #e0aaff 0%, #b8c0ff 100%);
+    color: #23233b;
+}
+footer {
+    margin-top: 2rem;
+}
+@media (max-width: 600px) {
+    .container {
+        padding: 1.2rem 0.5rem;
+        max-width: 98vw;
+    }
+    h1 {
+        font-size: 1.3rem;
+    }
+}

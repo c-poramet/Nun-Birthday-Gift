@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Birthday Quiz 🎉</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <label>1. Pick your favorite color:</label>
+                <input type="color" name="favoriteColor" required>
+            </div>
+            <div class="question">
+                <label>2. Pick a number between 0 and 1:</label>
+                <input type="range" name="decimalNumber" min="0" max="1" step="0.001" value="0.5" oninput="decimalOutput.value = value">
+                <output name="decimalOutput">0.5</output>
+            </div>
+            <div class="question">
+                <label>3. What is your favorite song?</label>
+                <input type="text" name="favoriteSong" required>
+            </div>
+            <div class="question">
+                <label>4. What is your favorite movie?</label>
+                <input type="text" name="favoriteMovie" required>
+            </div>
+            <div class="question">
+                <label>5. What is your favorite food?</label>
+                <input type="text" name="favoriteFood" required>
+            </div>
+            <div class="question">
+                <label>6. What is your favorite animal?</label>
+                <select name="favoriteAnimal" required>
+                    <option value="">Select...</option>
+                    <option>Cat</option>
+                    <option>Dog</option>
+                    <option>Bird</option>
+                    <option>Fish</option>
+                    <option>Rabbit</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>7. Dream travel destination?</label>
+                <input type="text" name="travelDestination" required>
+            </div>
+            <div class="question">
+                <label>8. Are you a morning or night person?</label>
+                <select name="dayPerson" required>
+                    <option value="">Select...</option>
+                    <option>Morning</option>
+                    <option>Night</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>9. Coffee or tea?</label>
+                <select name="coffeeOrTea" required>
+                    <option value="">Select...</option>
+                    <option>Coffee</option>
+                    <option>Tea</option>
+                    <option>Neither</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>10. Pick a lucky number (1-100):</label>
+                <input type="range" name="luckyNumber" min="1" max="100" value="50" oninput="luckyOutput.value = value">
+                <output name="luckyOutput">50</output>
+            </div>
+            <div class="question">
+                <label>11. Choose a random emoji:</label>
+                <input type="text" name="emoji" maxlength="2" required placeholder="e.g. 😎">
+            </div>
+            <div class="question">
+                <label>12. What is your favorite season?</label>
+                <select name="season" required>
+                    <option value="">Select...</option>
+                    <option>Spring</option>
+                    <option>Summer</option>
+                    <option>Autumn</option>
+                    <option>Winter</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>13. Pick a superpower:</label>
+                <select name="superpower" required>
+                    <option value="">Select...</option>
+                    <option>Invisibility</option>
+                    <option>Flying</option>
+                    <option>Time Travel</option>
+                    <option>Super Strength</option>
+                    <option>Telepathy</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>14. Describe yourself in one word:</label>
+                <input type="text" name="oneWord" required>
+            </div>
+            <div class="question">
+                <label>15. What’s your spirit vegetable?</label>
+                <input type="text" name="spiritVegetable" required>
+            </div>
+            <button type="submit">Save My Answers (.json)</button>
+        </form>
+    </div>
+    <script src="quiz.js"></script>
+</body>
+</html>
