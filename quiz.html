@@ -23,247 +23,208 @@
             </div>
             
             <form id="quiz-form">
-                <div class="question-block">
-                    <div class="question-number">[01/15]</div>
-                    <label>Favorite Province in Thailand:</label>
-                    <select name="favoriteProvince" required>
-                        <option value="">-- SELECT PROVINCE --</option>
-                        <option>Bangkok</option>
-                        <option>Chiang Mai</option>
-                        <option>Phuket</option>
-                        <option>Chonburi</option>
-                        <option>Khon Kaen</option>
-                        <option>Songkhla</option>
-                        <option>Nakhon Ratchasima</option>
-                        <option>Ayutthaya</option>
-                        <option>Surat Thani</option>
-                        <option>Other</option>
-                    </select>
-                </div>
+    <div class="question-block">
+        <div class="question-number">[01/15]</div>
+        <label>Pick your favorite color (HEX):</label>
+        <input type="color" name="favoriteColor" required>
+        <span class="color-display" id="colorDisplay">#000000</span>
+    </div>
 
-                <div class="question-block">
-                    <div class="question-number">[02/15]</div>
-                    <label>Favorite Movie:</label>
-                    <select name="favoriteMovie" required>
-                        <option value="">-- SELECT MOVIE --</option>
-                        <option>Inception</option>
-                        <option>Interstellar</option>
-                        <option>Parasite</option>
-                        <option>Spirited Away</option>
-                        <option>The Godfather</option>
-                        <option>Avengers: Endgame</option>
-                        <option>Forrest Gump</option>
-                        <option>La La Land</option>
-                        <option>Star Wars</option>
-                        <option>Other</option>
-                    </select>
-                </div>
+    <div class="question-block">
+        <div class="question-number">[02/15]</div>
+        <label>Pick a number between 0.000 and 1.000:</label>
+        <input type="range" name="favoriteNumber" min="0" max="1" step="0.001" value="0.500">
+        <output class="slider-output" id="numberOutput">0.500</output>
+    </div>
 
-                <div class="question-block">
-                    <div class="question-number">[03/15]</div>
-                    <label>Favorite Song Genre:</label>
-                    <select name="favoriteSongGenre" required>
-                        <option value="">-- SELECT GENRE --</option>
-                        <option>Pop</option>
-                        <option>Rock</option>
-                        <option>Hip-Hop</option>
-                        <option>Jazz</option>
-                        <option>Classical</option>
-                        <option>EDM</option>
-                        <option>Country</option>
-                        <option>Indie</option>
-                        <option>Other</option>
-                    </select>
-                </div>
+    <div class="question-block">
+        <div class="question-number">[03/15]</div>
+        <label>Favorite DND Class:</label>
+        <select name="favoriteDNDClass" required>
+            <option value="">-- SELECT CLASS --</option>
+            <option>Barbarian</option>
+            <option>Bard</option>
+            <option>Cleric</option>
+            <option>Druid</option>
+            <option>Fighter</option>
+            <option>Monk</option>
+            <option>Paladin</option>
+            <option>Ranger</option>
+            <option>Rogue</option>
+            <option>Sorcerer</option>
+            <option>Warlock</option>
+            <option>Wizard</option>
+            <option>Artificer</option>
+            <option>Other</option>
+        </select>
+    </div>
 
-                <div class="question-block">
-                    <div class="question-number">[04/15]</div>
-                    <label>Ultimate Comfort Food:</label>
-                    <select name="favoriteFood" required>
-                        <option value="">-- SELECT FOOD --</option>
-                        <option>Pizza</option>
-                        <option>Sushi</option>
-                        <option>Pad Thai</option>
-                        <option>Burger</option>
-                        <option>Som Tum</option>
-                        <option>Ice Cream</option>
-                        <option>Fried Chicken</option>
-                        <option>Ramen</option>
-                        <option>Other</option>
-                    </select>
-                </div>
+    <div class="question-block">
+        <div class="question-number">[04/15]</div>
+        <label>Introvert vs Extrovert (Y) / Planning vs Flexibility (X):</label>
+        <div class="coordinate-question">
+            <label class="axis-label">Planning <input type="range" name="planFlexX" min="0" max="1" step="0.01" value="0.5"> Flexibility</label>
+            <label class="axis-label">Introvert <input type="range" name="introExtroY" min="0" max="1" step="0.01" value="0.5"> Extrovert</label>
+        </div>
+    </div>
 
-                <div class="question-block">
-                    <div class="question-number">[05/15]</div>
-                    <label>Spirit Animal:</label>
-                    <select name="favoriteAnimal" required>
-                        <option value="">-- SELECT ANIMAL --</option>
-                        <option>Cat</option>
-                        <option>Dog</option>
-                        <option>Eagle</option>
-                        <option>Dolphin</option>
-                        <option>Tiger</option>
-                        <option>Penguin</option>
-                        <option>Dragon (mythical counts)</option>
-                        <option>Other</option>
-                    </select>
-                </div>
+    <div class="question-block">
+        <div class="question-number">[05/15]</div>
+        <label>Logic vs Emotion (Y) / Order vs Chaos (X):</label>
+        <div class="coordinate-question">
+            <label class="axis-label">Order <input type="range" name="orderChaosX" min="0" max="1" step="0.01" value="0.5"> Chaos</label>
+            <label class="axis-label">Logic <input type="range" name="logicEmotionY" min="0" max="1" step="0.01" value="0.5"> Emotion</label>
+        </div>
+    </div>
 
-                <div class="question-block">
-                    <div class="question-number">[06/15]</div>
-                    <label>Dream Destination:</label>
-                    <select name="travelDestination" required>
-                        <option value="">-- SELECT DESTINATION --</option>
-                        <option>Japan</option>
-                        <option>France</option>
-                        <option>USA</option>
-                        <option>Italy</option>
-                        <option>Australia</option>
-                        <option>Iceland</option>
-                        <option>New Zealand</option>
-                        <option>Thailand</option>
-                        <option>Other</option>
-                    </select>
-                </div>
+    <div class="question-block">
+        <div class="question-number">[06/15]</div>
+        <label>Optimist vs Realist (Y) / Leader vs Supporter (X):</label>
+        <div class="coordinate-question">
+            <label class="axis-label">Leader <input type="range" name="leaderSupportX" min="0" max="1" step="0.01" value="0.5"> Supporter</label>
+            <label class="axis-label">Optimist <input type="range" name="optimistRealistY" min="0" max="1" step="0.01" value="0.5"> Realist</label>
+        </div>
+    </div>
 
-                <div class="question-block">
-                    <div class="question-number">[07/15]</div>
-                    <label>Biological Clock Setting:</label>
-                    <select name="morningOrNight" required>
-                        <option value="">-- SELECT MODE --</option>
-                        <option>Morning Bird</option>
-                        <option>Night Owl</option>
-                        <option>Both/Neither</option>
-                    </select>
-                </div>
+    <div class="question-block">
+        <div class="question-number">[07/15]</div>
+        <label>Risk-Taker vs Cautious (Y) / Fast vs Thorough (X):</label>
+        <div class="coordinate-question">
+            <label class="axis-label">Fast <input type="range" name="fastThoroughX" min="0" max="1" step="0.01" value="0.5"> Thorough</label>
+            <label class="axis-label">Risk-Taker <input type="range" name="riskCautiousY" min="0" max="1" step="0.01" value="0.5"> Cautious</label>
+        </div>
+    </div>
 
-                <div class="question-block">
-                    <div class="question-number">[08/15]</div>
-                    <label>Caffeine Preference:</label>
-                    <select name="coffeeOrTea" required>
-                        <option value="">-- SELECT BEVERAGE --</option>
-                        <option>Coffee</option>
-                        <option>Tea</option>
-                        <option>Energy Drinks</option>
-                        <option>Neither</option>
-                    </select>
-                </div>
+    <div class="question-block">
+        <div class="question-number">[08/15]</div>
+        <label>Minimalist vs Collector (Y) / Techie vs Nature-Lover (X):</label>
+        <div class="coordinate-question">
+            <label class="axis-label">Techie <input type="range" name="techNatureX" min="0" max="1" step="0.01" value="0.5"> Nature-Lover</label>
+            <label class="axis-label">Minimalist <input type="range" name="minCollectorY" min="0" max="1" step="0.01" value="0.5"> Collector</label>
+        </div>
+    </div>
 
-                <div class="question-block">
-                    <div class="question-number">[09/15]</div>
-                    <label>Lucky Number:</label>
-                    <select name="luckyNumber" required>
-                        <option value="">-- SELECT NUMBER --</option>
-                        <option>7</option>
-                        <option>13</option>
-                        <option>21</option>
-                        <option>42</option>
-                        <option>69</option>
-                        <option>99</option>
-                        <option>100</option>
-                        <option>Other</option>
-                    </select>
-                </div>
+    <div class="question-block">
+        <div class="question-number">[09/15]</div>
+        <label>Favorite Province in Thailand:</label>
+        <select name="favoriteProvince" required>
+            <option value="">-- SELECT PROVINCE --</option>
+            <option>Bangkok</option>
+            <option>Chiang Mai</option>
+            <option>Phuket</option>
+            <option>Chonburi</option>
+            <option>Khon Kaen</option>
+            <option>Songkhla</option>
+            <option>Nakhon Ratchasima</option>
+            <option>Ayutthaya</option>
+            <option>Surat Thani</option>
+            <option>Other</option>
+        </select>
+    </div>
 
-                <div class="question-block">
-                    <div class="question-number">[10/15]</div>
-                    <label>Favorite Emoji:</label>
-                    <select name="favoriteEmoji" required>
-                        <option value="">-- SELECT EMOJI --</option>
-                        <option>😎</option>
-                        <option>😂</option>
-                        <option>😍</option>
-                        <option>🤔</option>
-                        <option>🥳</option>
-                        <option>😭</option>
-                        <option>😴</option>
-                        <option>👽</option>
-                        <option>Other</option>
-                    </select>
-                </div>
+    <div class="question-block">
+        <div class="question-number">[10/15]</div>
+        <label>Favorite Movie:</label>
+        <select name="favoriteMovie" required>
+            <option value="">-- SELECT MOVIE --</option>
+            <option>Inception</option>
+            <option>Interstellar</option>
+            <option>Parasite</option>
+            <option>Spirited Away</option>
+            <option>The Godfather</option>
+            <option>Avengers: Endgame</option>
+            <option>Forrest Gump</option>
+            <option>La La Land</option>
+            <option>Star Wars</option>
+            <option>Other</option>
+        </select>
+    </div>
 
-                <div class="question-block">
-                    <div class="question-number">[11/15]</div>
-                    <label>Favorite Season:</label>
-                    <select name="favoriteSeason" required>
-                        <option value="">-- SELECT SEASON --</option>
-                        <option>Spring</option>
-                        <option>Summer</option>
-                        <option>Autumn</option>
-                        <option>Winter</option>
-                    </select>
-                </div>
+    <div class="question-block">
+        <div class="question-number">[11/15]</div>
+        <label>Favorite Song Genre:</label>
+        <select name="favoriteSongGenre" required>
+            <option value="">-- SELECT GENRE --</option>
+            <option>Pop</option>
+            <option>Rock</option>
+            <option>Hip-Hop</option>
+            <option>Jazz</option>
+            <option>Classical</option>
+            <option>EDM</option>
+            <option>Country</option>
+            <option>Indie</option>
+            <option>Other</option>
+        </select>
+    </div>
 
-                <div class="question-block">
-                    <div class="question-number">[12/15]</div>
-                    <label>Superpower:</label>
-                    <select name="superpower" required>
-                        <option value="">-- SELECT POWER --</option>
-                        <option>Invisibility</option>
-                        <option>Flight</option>
-                        <option>Time Travel</option>
-                        <option>Telepathy</option>
-                        <option>Super Speed</option>
-                        <option>Shapeshifting</option>
-                        <option>Other</option>
-                    </select>
-                </div>
+    <div class="question-block">
+        <div class="question-number">[12/15]</div>
+        <label>Ultimate Comfort Food:</label>
+        <select name="favoriteFood" required>
+            <option value="">-- SELECT FOOD --</option>
+            <option>Pizza</option>
+            <option>Sushi</option>
+            <option>Pad Thai</option>
+            <option>Burger</option>
+            <option>Som Tum</option>
+            <option>Ice Cream</option>
+            <option>Fried Chicken</option>
+            <option>Ramen</option>
+            <option>Other</option>
+        </select>
+    </div>
 
-                <div class="question-block">
-                    <div class="question-number">[13/15]</div>
-                    <label>Self-Description (One Word):</label>
-                    <select name="oneWord" required>
-                        <option value="">-- SELECT WORD --</option>
-                        <option>Creative</option>
-                        <option>Funny</option>
-                        <option>Chill</option>
-                        <option>Curious</option>
-                        <option>Adventurous</option>
-                        <option>Kind</option>
-                        <option>Smart</option>
-                        <option>Other</option>
-                    </select>
-                </div>
+    <div class="question-block">
+        <div class="question-number">[13/15]</div>
+        <label>Spirit Animal:</label>
+        <select name="favoriteAnimal" required>
+            <option value="">-- SELECT ANIMAL --</option>
+            <option>Cat</option>
+            <option>Dog</option>
+            <option>Eagle</option>
+            <option>Dolphin</option>
+            <option>Tiger</option>
+            <option>Penguin</option>
+            <option>Dragon (mythical counts)</option>
+            <option>Other</option>
+        </select>
+    </div>
 
-                <div class="question-block">
-                    <div class="question-number">[14/15]</div>
-                    <label>Spirit Vegetable:</label>
-                    <select name="spiritVegetable" required>
-                        <option value="">-- SELECT VEGETABLE --</option>
-                        <option>Carrot</option>
-                        <option>Broccoli</option>
-                        <option>Potato</option>
-                        <option>Pumpkin</option>
-                        <option>Tomato</option>
-                        <option>Cucumber</option>
-                        <option>Eggplant</option>
-                        <option>Other</option>
-                    </select>
-                </div>
+    <div class="question-block">
+        <div class="question-number">[14/15]</div>
+        <label>Favorite Emoji:</label>
+        <select name="favoriteEmoji" required>
+            <option value="">-- SELECT EMOJI --</option>
+            <option>😎</option>
+            <option>😂</option>
+            <option>😍</option>
+            <option>🤔</option>
+            <option>🥳</option>
+            <option>😭</option>
+            <option>😴</option>
+            <option>👽</option>
+            <option>Other</option>
+        </select>
+    </div>
 
-                <div class="question-block">
-                    <div class="question-number">[15/15]</div>
-                    <label>Favorite Color:</label>
-                    <select name="favoriteColor" required>
-                        <option value="">-- SELECT COLOR --</option>
-                        <option>Red</option>
-                        <option>Blue</option>
-                        <option>Green</option>
-                        <option>Yellow</option>
-                        <option>Purple</option>
-                        <option>Pink</option>
-                        <option>Black</option>
-                        <option>White</option>
-                        <option>Other</option>
-                    </select>
-                </div>
+    <div class="question-block">
+        <div class="question-number">[15/15]</div>
+        <label>Favorite Season:</label>
+        <select name="favoriteSeason" required>
+            <option value="">-- SELECT SEASON --</option>
+            <option>Spring</option>
+            <option>Summer</option>
+            <option>Autumn</option>
+            <option>Winter</option>
+        </select>
+    </div>
 
-                <div class="submit-section">
-                    <button type="submit" class="retro-button">
-                        >>> SAVE ANSWERS TO DISK <<<
-                    </button>
-                </div>
-            </form>
+    <div class="submit-section">
+        <button type="submit" class="retro-button">
+            >>> SAVE ANSWERS TO DISK <<<
+        </button>
+    </div>
+</form>
         </div>
     </div>
     <script src="quiz.js"></script>
