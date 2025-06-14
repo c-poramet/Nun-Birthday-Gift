@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 ctx.clearRect(0, 0, width, height);
                 
                 // Draw grid
-                ctx.strokeStyle = '#333';
+                ctx.strokeStyle = '#e0d5c7';
                 ctx.lineWidth = 1;
                 for (let i = 1; i < 4; i++) {
                     ctx.beginPath();
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 // Draw center lines
-                ctx.strokeStyle = '#555';
+                ctx.strokeStyle = '#d4c4b0';
                 ctx.lineWidth = 2;
                 ctx.beginPath();
                 ctx.moveTo(width / 2, 0);
@@ -172,13 +172,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 const px = x * width;
                 const py = y * height;
                 ctx.beginPath();
-                ctx.arc(px, py, 10, 0, 2 * Math.PI);
-                ctx.fillStyle = '#ff00ff';
-                ctx.shadowColor = '#00ffff';
-                ctx.shadowBlur = 8;
+                ctx.arc(px, py, 8, 0, 2 * Math.PI);
+                ctx.fillStyle = '#8b7355';
                 ctx.fill();
-                ctx.shadowBlur = 0;
-                ctx.strokeStyle = '#fff';
+                ctx.strokeStyle = '#5d4e37';
                 ctx.lineWidth = 2;
                 ctx.stroke();
             }

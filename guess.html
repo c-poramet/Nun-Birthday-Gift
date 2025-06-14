@@ -24,45 +24,159 @@
             </div>
             
             <div class="instructions">
-                <p>>>> ENTER YOUR NAME FIRST <<<</p>
+                <p>Enter your name first:</p>
                 <input type="text" id="guesserName" placeholder="Your name..." required>
             </div>
 
             <form id="guess-form">
                 <div class="question-block">
                     <div class="question-number">[01/15]</div>
-                    <label>What's their favorite color?</label>
+                    <label>What's their favorite color (HEX)?</label>
                     <input type="color" name="favoriteColor" required>
                     <span class="color-display" id="colorDisplay">#000000</span>
                 </div>
 
                 <div class="question-block">
                     <div class="question-number">[02/15]</div>
-                    <label>What decimal would they pick?</label>
-                    <input type="range" name="decimalNumber" min="0" max="1" step="0.001" value="0.500">
-                    <output class="slider-output" id="decimalOutput">0.500</output>
+                    <label>What number would they pick (0.000 - 1.000)?</label>
+                    <input type="range" name="favoriteNumber" min="0" max="1" step="0.001" value="0.500">
+                    <output class="slider-output" id="numberOutput">0.500</output>
                 </div>
 
                 <div class="question-block">
                     <div class="question-number">[03/15]</div>
-                    <label>Their favorite song:</label>
-                    <input type="text" name="favoriteSong" required placeholder="Song name...">
+                    <label>Their favorite DND class:</label>
+                    <select name="favoriteDNDClass" required>
+                        <option value="">-- SELECT CLASS --</option>
+                        <option>Barbarian</option>
+                        <option>Bard</option>
+                        <option>Cleric</option>
+                        <option>Druid</option>
+                        <option>Fighter</option>
+                        <option>Monk</option>
+                        <option>Paladin</option>
+                        <option>Ranger</option>
+                        <option>Rogue</option>
+                        <option>Sorcerer</option>
+                        <option>Warlock</option>
+                        <option>Wizard</option>
+                        <option>Artificer</option>
+                        <option>Other</option>
+                    </select>
                 </div>
 
                 <div class="question-block">
                     <div class="question-number">[04/15]</div>
-                    <label>Their favorite movie:</label>
-                    <input type="text" name="favoriteMovie" required placeholder="Movie title...">
+                    <label>Where would they place themselves? Introvert vs Extrovert (Y) / Planning vs Flexibility (X):</label>
+                    <div class="coordinate-plane" data-x="planFlexX" data-y="introExtroY" data-xlabel-left="Planning" data-xlabel-right="Flexibility" data-ylabel-top="Introvert" data-ylabel-bottom="Extrovert"></div>
+                    <input type="hidden" name="planFlexX" required>
+                    <input type="hidden" name="introExtroY" required>
                 </div>
 
                 <div class="question-block">
                     <div class="question-number">[05/15]</div>
-                    <label>Their comfort food:</label>
-                    <input type="text" name="favoriteFood" required placeholder="Food name...">
+                    <label>Where would they place themselves? Logic vs Emotion (Y) / Order vs Chaos (X):</label>
+                    <div class="coordinate-plane" data-x="orderChaosX" data-y="logicEmotionY" data-xlabel-left="Order" data-xlabel-right="Chaos" data-ylabel-top="Logic" data-ylabel-bottom="Emotion"></div>
+                    <input type="hidden" name="orderChaosX" required>
+                    <input type="hidden" name="logicEmotionY" required>
                 </div>
 
                 <div class="question-block">
                     <div class="question-number">[06/15]</div>
+                    <label>Where would they place themselves? Optimist vs Realist (Y) / Leader vs Supporter (X):</label>
+                    <div class="coordinate-plane" data-x="leaderSupportX" data-y="optimistRealistY" data-xlabel-left="Leader" data-xlabel-right="Supporter" data-ylabel-top="Optimist" data-ylabel-bottom="Realist"></div>
+                    <input type="hidden" name="leaderSupportX" required>
+                    <input type="hidden" name="optimistRealistY" required>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[07/15]</div>
+                    <label>Where would they place themselves? Risk-Taker vs Cautious (Y) / Fast vs Thorough (X):</label>
+                    <div class="coordinate-plane" data-x="fastThoroughX" data-y="riskCautiousY" data-xlabel-left="Fast" data-xlabel-right="Thorough" data-ylabel-top="Risk-Taker" data-ylabel-bottom="Cautious"></div>
+                    <input type="hidden" name="fastThoroughX" required>
+                    <input type="hidden" name="riskCautiousY" required>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[08/15]</div>
+                    <label>Where would they place themselves? Minimalist vs Collector (Y) / Techie vs Nature-Lover (X):</label>
+                    <div class="coordinate-plane" data-x="techNatureX" data-y="minCollectorY" data-xlabel-left="Techie" data-xlabel-right="Nature-Lover" data-ylabel-top="Minimalist" data-ylabel-bottom="Collector"></div>
+                    <input type="hidden" name="techNatureX" required>
+                    <input type="hidden" name="minCollectorY" required>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[09/15]</div>
+                    <label>Their favorite province in Thailand:</label>
+                    <select name="favoriteProvince" required>
+                        <option value="">-- SELECT PROVINCE --</option>
+                        <option>Bangkok</option>
+                        <option>Chiang Mai</option>
+                        <option>Phuket</option>
+                        <option>Chonburi</option>
+                        <option>Khon Kaen</option>
+                        <option>Songkhla</option>
+                        <option>Nakhon Ratchasima</option>
+                        <option>Ayutthaya</option>
+                        <option>Surat Thani</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[10/15]</div>
+                    <label>Their favorite movie:</label>
+                    <select name="favoriteMovie" required>
+                        <option value="">-- SELECT MOVIE --</option>
+                        <option>Inception</option>
+                        <option>Interstellar</option>
+                        <option>Parasite</option>
+                        <option>Spirited Away</option>
+                        <option>The Godfather</option>
+                        <option>Avengers: Endgame</option>
+                        <option>Forrest Gump</option>
+                        <option>La La Land</option>
+                        <option>Star Wars</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[11/15]</div>
+                    <label>Their favorite song genre:</label>
+                    <select name="favoriteSongGenre" required>
+                        <option value="">-- SELECT GENRE --</option>
+                        <option>Pop</option>
+                        <option>Rock</option>
+                        <option>Hip-Hop</option>
+                        <option>Jazz</option>
+                        <option>Classical</option>
+                        <option>EDM</option>
+                        <option>Country</option>
+                        <option>Indie</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[12/15]</div>
+                    <label>Their ultimate comfort food:</label>
+                    <select name="favoriteFood" required>
+                        <option value="">-- SELECT FOOD --</option>
+                        <option>Pizza</option>
+                        <option>Sushi</option>
+                        <option>Pad Thai</option>
+                        <option>Burger</option>
+                        <option>Som Tum</option>
+                        <option>Ice Cream</option>
+                        <option>Fried Chicken</option>
+                        <option>Ramen</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[13/15]</div>
                     <label>Their spirit animal:</label>
                     <select name="favoriteAnimal" required>
                         <option value="">-- SELECT ANIMAL --</option>
@@ -73,53 +187,29 @@
                         <option>Tiger</option>
                         <option>Penguin</option>
                         <option>Dragon (mythical counts)</option>
+                        <option>Other</option>
                     </select>
                 </div>
 
                 <div class="question-block">
-                    <div class="question-number">[07/15]</div>
-                    <label>Their dream destination:</label>
-                    <input type="text" name="travelDestination" required placeholder="City, Country...">
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">[08/15]</div>
-                    <label>Are they morning or night person?</label>
-                    <select name="morningOrNight" required>
-                        <option value="">-- SELECT MODE --</option>
-                        <option>Morning Bird</option>
-                        <option>Night Owl</option>
-                        <option>Both/Neither</option>
+                    <div class="question-number">[14/15]</div>
+                    <label>Their favorite emoji:</label>
+                    <select name="favoriteEmoji" required>
+                        <option value="">-- SELECT EMOJI --</option>
+                        <option>😎</option>
+                        <option>😂</option>
+                        <option>😍</option>
+                        <option>🤔</option>
+                        <option>🥳</option>
+                        <option>😭</option>
+                        <option>😴</option>
+                        <option>👽</option>
+                        <option>Other</option>
                     </select>
                 </div>
 
                 <div class="question-block">
-                    <div class="question-number">[09/15]</div>
-                    <label>Coffee or tea?</label>
-                    <select name="coffeeOrTea" required>
-                        <option value="">-- SELECT BEVERAGE --</option>
-                        <option>Coffee</option>
-                        <option>Tea</option>
-                        <option>Energy Drinks</option>
-                        <option>Neither</option>
-                    </select>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">[10/15]</div>
-                    <label>Their lucky number:</label>
-                    <input type="range" name="luckyNumber" min="1" max="100" value="42">
-                    <output class="slider-output" id="luckyOutput">42</output>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">[11/15]</div>
-                    <label>Their emoji:</label>
-                    <input type="text" name="favoriteEmoji" maxlength="4" required placeholder="😎">
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">[12/15]</div>
+                    <div class="question-number">[15/15]</div>
                     <label>Their favorite season:</label>
                     <select name="favoriteSeason" required>
                         <option value="">-- SELECT SEASON --</option>
@@ -130,35 +220,9 @@
                     </select>
                 </div>
 
-                <div class="question-block">
-                    <div class="question-number">[13/15]</div>
-                    <label>What superpower would they pick?</label>
-                    <select name="superpower" required>
-                        <option value="">-- SELECT POWER --</option>
-                        <option>Invisibility</option>
-                        <option>Flight</option>
-                        <option>Time Travel</option>
-                        <option>Telepathy</option>
-                        <option>Super Speed</option>
-                        <option>Shapeshifting</option>
-                    </select>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">[14/15]</div>
-                    <label>One word to describe them:</label>
-                    <input type="text" name="oneWord" required placeholder="One word...">
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">[15/15]</div>
-                    <label>Their spirit vegetable:</label>
-                    <input type="text" name="spiritVegetable" required placeholder="What vegetable?">
-                </div>
-
                 <div class="submit-section">
                     <button type="submit" class="retro-button">
-                        >>> SAVE GUESSES TO DISK <<<
+                        Save Guesses
                     </button>
                 </div>
             </form>

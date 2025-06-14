@@ -58,14 +58,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (key === 'favoriteColor') {
                     // Color comparison (hex values)
                     points = birthdayAnswer === guessAnswer ? 1 : 0;
-                } else if (key === 'decimalNumber') {
+                } else if (key === 'favoriteNumber') {
                     // Decimal number comparison (closer = better)
                     const diff = Math.abs(parseFloat(birthdayAnswer) - parseFloat(guessAnswer));
                     points = Math.max(0, 1 - (diff * 10)); // Scale so 0.1 diff = 0 points
-                } else if (key === 'luckyNumber') {
-                    // Lucky number comparison (closer = better)
-                    const diff = Math.abs(parseInt(birthdayAnswer) - parseInt(guessAnswer));
-                    points = Math.max(0, 1 - (diff / 50)); // Scale so 50 diff = 0 points
+                } else if (key.endsWith('X') || key.endsWith('Y')) {
+                    // Coordinate plane comparison (closer = better)
+                    const diff = Math.abs(parseFloat(birthdayAnswer) - parseFloat(guessAnswer));
+                    points = Math.max(0, 1 - (diff * 2)); // Scale so 0.5 diff = 0 points
                 } else if (typeof birthdayAnswer === 'string' && typeof guessAnswer === 'string') {
                     // Text comparison (case insensitive, partial match)
                     const birthday = birthdayAnswer.toLowerCase().trim();
@@ -166,20 +166,25 @@ document.addEventListener('DOMContentLoaded', function() {
     function getQuestionNumber(key) {
         const questionMap = {
             'favoriteColor': '01',
-            'decimalNumber': '02',
-            'favoriteSong': '03',
-            'favoriteMovie': '04',
-            'favoriteFood': '05',
-            'favoriteAnimal': '06',
-            'travelDestination': '07',
-            'morningOrNight': '08',
-            'coffeeOrTea': '09',
-            'luckyNumber': '10',
-            'favoriteEmoji': '11',
-            'favoriteSeason': '12',
-            'superpower': '13',
-            'oneWord': '14',
-            'spiritVegetable': '15'
+            'favoriteNumber': '02',
+            'favoriteDNDClass': '03',
+            'planFlexX': '04a',
+            'introExtroY': '04b',
+            'orderChaosX': '05a',
+            'logicEmotionY': '05b',
+            'leaderSupportX': '06a',
+            'optimistRealistY': '06b',
+            'fastThoroughX': '07a',
+            'riskCautiousY': '07b',
+            'techNatureX': '08a',
+            'minCollectorY': '08b',
+            'favoriteProvince': '09',
+            'favoriteMovie': '10',
+            'favoriteSongGenre': '11',
+            'favoriteFood': '12',
+            'favoriteAnimal': '13',
+            'favoriteEmoji': '14',
+            'favoriteSeason': '15'
         };
         return questionMap[key] || '??';
     }
@@ -187,20 +192,25 @@ document.addEventListener('DOMContentLoaded', function() {
     function getQuestionText(key) {
         const questionMap = {
             'favoriteColor': 'Favorite Color',
-            'decimalNumber': 'Decimal Number',
-            'favoriteSong': 'Favorite Song',
+            'favoriteNumber': 'Favorite Number (0-1)',
+            'favoriteDNDClass': 'Favorite DND Class',
+            'planFlexX': 'Planning vs Flexibility (X)',
+            'introExtroY': 'Introvert vs Extrovert (Y)',
+            'orderChaosX': 'Order vs Chaos (X)',
+            'logicEmotionY': 'Logic vs Emotion (Y)',
+            'leaderSupportX': 'Leader vs Supporter (X)',
+            'optimistRealistY': 'Optimist vs Realist (Y)',
+            'fastThoroughX': 'Fast vs Thorough (X)',
+            'riskCautiousY': 'Risk-Taker vs Cautious (Y)',
+            'techNatureX': 'Techie vs Nature-Lover (X)',
+            'minCollectorY': 'Minimalist vs Collector (Y)',
+            'favoriteProvince': 'Favorite Province in Thailand',
             'favoriteMovie': 'Favorite Movie',
+            'favoriteSongGenre': 'Favorite Song Genre',
             'favoriteFood': 'Favorite Food',
             'favoriteAnimal': 'Spirit Animal',
-            'travelDestination': 'Dream Destination',
-            'morningOrNight': 'Morning/Night Person',
-            'coffeeOrTea': 'Coffee or Tea',
-            'luckyNumber': 'Lucky Number',
             'favoriteEmoji': 'Favorite Emoji',
-            'favoriteSeason': 'Favorite Season',
-            'superpower': 'Superpower',
-            'oneWord': 'One Word Description',
-            'spiritVegetable': 'Spirit Vegetable'
+            'favoriteSeason': 'Favorite Season'
         };
         return questionMap[key] || 'Unknown Question';
     }
