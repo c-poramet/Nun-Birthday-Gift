@@ -75,50 +75,73 @@ document.addEventListener('DOMContentLoaded', function() {
     function setupCoordinatePlanes() {
         document.querySelectorAll('.coordinate-plane').forEach(function(plane) {
             // Settings
-            const width = 220, height = 220, margin = 24;
+            const width = 220, height = 220;
             const xName = plane.dataset.x;
             const yName = plane.dataset.y;
             const xLabelLeft = plane.dataset.xlabelLeft;
             const xLabelRight = plane.dataset.xlabelRight;
             const yLabelTop = plane.dataset.ylabelTop;
             const yLabelBottom = plane.dataset.ylabelBottom;
+            
+            // Create container for canvas and labels
+            const container = document.createElement('div');
+            container.className = 'plane-container';
+            
             // Create canvas
             const canvas = document.createElement('canvas');
             canvas.width = width;
             canvas.height = height;
-            canvas.style.background = '#181824';
-            canvas.style.border = '2px solid #00ff41';
-            canvas.style.borderRadius = '8px';
-            canvas.style.display = 'block';
-            canvas.style.margin = '0 auto 8px auto';
-            plane.appendChild(canvas);
-            // Labels
-            const labelRow = document.createElement('div');
-            labelRow.style.display = 'flex';
-            labelRow.style.justifyContent = 'space-between';
-            labelRow.style.margin = '0 2px 2px 2px';
-            labelRow.style.fontSize = '12px';
-            labelRow.innerHTML = `<span style="color:#00ffff">${xLabelLeft}</span><span style="color:#00ffff">${xLabelRight}</span>`;
-            plane.appendChild(labelRow);
-            const labelCol = document.createElement('div');
-            labelCol.style.display = 'flex';
-            labelCol.style.justifyContent = 'space-between';
-            labelCol.style.margin = '0 2px 2px 2px';
-            labelCol.style.fontSize = '12px';
-            labelCol.innerHTML = `<span style="color:#ff00ff">${yLabelTop}</span><span style="color:#ff00ff">${yLabelBottom}</span>`;
-            labelCol.style.flexDirection = 'column';
-            labelCol.style.height = '0px'; // just for semantics
+            container.appendChild(canvas);
+            
+            // Create axis labels positioned around the canvas
+            const xLeftLabel = document.createElement('div');
+            xLeftLabel.className = 'axis-label x-left';
+            xLeftLabel.textContent = xLabelLeft;
+            container.appendChild(xLeftLabel);
+            
+            const xRightLabel = document.createElement('div');
+            xRightLabel.className = 'axis-label x-right';
+            xRightLabel.textContent = xLabelRight;
+            container.appendChild(xRightLabel);
+            
+            const yTopLabel = document.createElement('div');
+            yTopLabel.className = 'axis-label y-top';
+            yTopLabel.textContent = yLabelTop;
+            container.appendChild(yTopLabel);
+            
+            const yBottomLabel = document.createElement('div');
+            yBottomLabel.className = 'axis-label y-bottom';
+            yBottomLabel.textContent = yLabelBottom;
+            container.appendChild(yBottomLabel);
+            
+            plane.appendChild(container);
+            
+            // Create coordinate display
+            const coordDisplay = document.createElement('div');
+            coordDisplay.className = 'coordinate-display';
+            coordDisplay.textContent = 'Click to set position';
+            plane.appendChild(coordDisplay);
+            
             // Hidden inputs
             const xInput = plane.parentElement.querySelector(`input[name='${xName}']`);
             const yInput = plane.parentElement.querySelector(`input[name='${yName}']`);
+            
             // Initial values
             let x = 0.5, y = 0.5;
             xInput.value = x;
             yInput.value = y;
+            
+            // Update coordinate display
+            function updateCoordDisplay() {
+                coordDisplay.textContent = `(${x.toFixed(2)}, ${y.toFixed(2)})`;
+            }
+            updateCoordDisplay();
+            
             // Draw function
             function draw() {
                 const ctx = canvas.getContext('2d');
                 ctx.clearRect(0, 0, width, height);
+                
                 // Draw grid
                 ctx.strokeStyle = '#333';
                 ctx.lineWidth = 1;
@@ -132,6 +155,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     ctx.lineTo(width, i * height / 4);
                     ctx.stroke();
                 }
+                
+                // Draw center lines
+                ctx.strokeStyle = '#555';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(width / 2, 0);
+                ctx.lineTo(width / 2, height);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(0, height / 2);
+                ctx.lineTo(width, height / 2);
+                ctx.stroke();
+                
                 // Draw point
                 const px = x * width;
                 const py = y * height;
@@ -147,6 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 ctx.stroke();
             }
             draw();
+            
             // Drag logic
             let dragging = false;
             function setFromEvent(e) {
@@ -157,6 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 y = Math.max(0, Math.min(1, cy / height));
                 xInput.value = x.toFixed(3);
                 yInput.value = y.toFixed(3);
+                updateCoordDisplay();
                 draw();
             }
             canvas.addEventListener('mousedown', function(e) {
