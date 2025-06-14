@@ -3,108 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Quiz</title>
+    <title>BIRTHDAY QUIZ v1.0</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>🎉 Birthday Quiz 🎉</h1>
-        <form id="quiz-form">
-            <div class="question">
-                <label>1. Pick your favorite color:</label>
-                <input type="color" name="favoriteColor" required>
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <span class="terminal-title">>>> BIRTHDAY_QUIZ.EXE <<<</span>
+            <div class="terminal-buttons">
+                <span class="btn-close">X</span>
             </div>
-            <div class="question">
-                <label>2. Pick a number between 0 and 1:</label>
-                <input type="range" name="decimalNumber" min="0" max="1" step="0.001" value="0.5" oninput="decimalOutput.value = value">
-                <output name="decimalOutput">0.5</output>
+        </div>
+        <div class="terminal-content">
+            <div class="ascii-art">
+╔═══════════════════════════════════╗<br>
+║    🎂 BIRTHDAY QUIZ SYSTEM 🎂    ║<br>
+║         v1.0 - RETRO MODE         ║<br>
+╚═══════════════════════════════════╝
             </div>
-            <div class="question">
-                <label>3. What is your favorite song?</label>
-                <input type="text" name="favoriteSong" required>
-            </div>
-            <div class="question">
-                <label>4. What is your favorite movie?</label>
-                <input type="text" name="favoriteMovie" required>
-            </div>
-            <div class="question">
-                <label>5. What is your favorite food?</label>
-                <input type="text" name="favoriteFood" required>
-            </div>
-            <div class="question">
-                <label>6. What is your favorite animal?</label>
-                <select name="favoriteAnimal" required>
-                    <option value="">Select...</option>
-                    <option>Cat</option>
-                    <option>Dog</option>
-                    <option>Bird</option>
-                    <option>Fish</option>
-                    <option>Rabbit</option>
-                    <option>Other</option>
-                </select>
-            </div>
-            <div class="question">
-                <label>7. Dream travel destination?</label>
-                <input type="text" name="travelDestination" required>
-            </div>
-            <div class="question">
-                <label>8. Are you a morning or night person?</label>
-                <select name="dayPerson" required>
-                    <option value="">Select...</option>
-                    <option>Morning</option>
-                    <option>Night</option>
-                </select>
-            </div>
-            <div class="question">
-                <label>9. Coffee or tea?</label>
-                <select name="coffeeOrTea" required>
-                    <option value="">Select...</option>
-                    <option>Coffee</option>
-                    <option>Tea</option>
-                    <option>Neither</option>
-                </select>
-            </div>
-            <div class="question">
-                <label>10. Pick a lucky number (1-100):</label>
-                <input type="range" name="luckyNumber" min="1" max="100" value="50" oninput="luckyOutput.value = value">
-                <output name="luckyOutput">50</output>
-            </div>
-            <div class="question">
-                <label>11. Choose a random emoji:</label>
-                <input type="text" name="emoji" maxlength="2" required placeholder="e.g. 😎">
-            </div>
-            <div class="question">
-                <label>12. What is your favorite season?</label>
-                <select name="season" required>
-                    <option value="">Select...</option>
-                    <option>Spring</option>
-                    <option>Summer</option>
-                    <option>Autumn</option>
-                    <option>Winter</option>
-                </select>
-            </div>
-            <div class="question">
-                <label>13. Pick a superpower:</label>
-                <select name="superpower" required>
-                    <option value="">Select...</option>
-                    <option>Invisibility</option>
-                    <option>Flying</option>
-                    <option>Time Travel</option>
-                    <option>Super Strength</option>
-                    <option>Telepathy</option>
-                    <option>Other</option>
-                </select>
-            </div>
-            <div class="question">
-                <label>14. Describe yourself in one word:</label>
-                <input type="text" name="oneWord" required>
-            </div>
-            <div class="question">
-                <label>15. What’s your spirit vegetable?</label>
-                <input type="text" name="spiritVegetable" required>
-            </div>
-            <button type="submit">Save My Answers (.json)</button>
-        </form>
+            
+            <form id="quiz-form">
+                <div class="question-block">
+                    <div class="question-number">[01/15]</div>
+                    <label>Favorite Province in Thailand:</label>
+                    <select name="favoriteProvince" required>
+                        <option value="">-- SELECT PROVINCE --</option>
+                        <option>Bangkok</option>
+                        <option>Chiang Mai</option>
+                        <option>Phuket</option>
+                        <option>Chonburi</option>
+                        <option>Khon Kaen</option>
+                        <option>Songkhla</option>
+                        <option>Nakhon Ratchasima</option>
+                        <option>Ayutthaya</option>
+                        <option>Surat Thani</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[02/15]</div>
+                    <label>Favorite Movie:</label>
+                    <select name="favoriteMovie" required>
+                        <option value="">-- SELECT MOVIE --</option>
+                        <option>Inception</option>
+                        <option>Interstellar</option>
+                        <option>Parasite</option>
+                        <option>Spirited Away</option>
+                        <option>The Godfather</option>
+                        <option>Avengers: Endgame</option>
+                        <option>Forrest Gump</option>
+                        <option>La La Land</option>
+                        <option>Star Wars</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[03/15]</div>
+                    <label>Favorite Song Genre:</label>
+                    <select name="favoriteSongGenre" required>
+                        <option value="">-- SELECT GENRE --</option>
+                        <option>Pop</option>
+                        <option>Rock</option>
+                        <option>Hip-Hop</option>
+                        <option>Jazz</option>
+                        <option>Classical</option>
+                        <option>EDM</option>
+                        <option>Country</option>
+                        <option>Indie</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[04/15]</div>
+                    <label>Ultimate Comfort Food:</label>
+                    <select name="favoriteFood" required>
+                        <option value="">-- SELECT FOOD --</option>
+                        <option>Pizza</option>
+                        <option>Sushi</option>
+                        <option>Pad Thai</option>
+                        <option>Burger</option>
+                        <option>Som Tum</option>
+                        <option>Ice Cream</option>
+                        <option>Fried Chicken</option>
+                        <option>Ramen</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[05/15]</div>
+                    <label>Spirit Animal:</label>
+                    <select name="favoriteAnimal" required>
+                        <option value="">-- SELECT ANIMAL --</option>
+                        <option>Cat</option>
+                        <option>Dog</option>
+                        <option>Eagle</option>
+                        <option>Dolphin</option>
+                        <option>Tiger</option>
+                        <option>Penguin</option>
+                        <option>Dragon (mythical counts)</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[06/15]</div>
+                    <label>Dream Destination:</label>
+                    <select name="travelDestination" required>
+                        <option value="">-- SELECT DESTINATION --</option>
+                        <option>Japan</option>
+                        <option>France</option>
+                        <option>USA</option>
+                        <option>Italy</option>
+                        <option>Australia</option>
+                        <option>Iceland</option>
+                        <option>New Zealand</option>
+                        <option>Thailand</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[07/15]</div>
+                    <label>Biological Clock Setting:</label>
+                    <select name="morningOrNight" required>
+                        <option value="">-- SELECT MODE --</option>
+                        <option>Morning Bird</option>
+                        <option>Night Owl</option>
+                        <option>Both/Neither</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[08/15]</div>
+                    <label>Caffeine Preference:</label>
+                    <select name="coffeeOrTea" required>
+                        <option value="">-- SELECT BEVERAGE --</option>
+                        <option>Coffee</option>
+                        <option>Tea</option>
+                        <option>Energy Drinks</option>
+                        <option>Neither</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[09/15]</div>
+                    <label>Lucky Number:</label>
+                    <select name="luckyNumber" required>
+                        <option value="">-- SELECT NUMBER --</option>
+                        <option>7</option>
+                        <option>13</option>
+                        <option>21</option>
+                        <option>42</option>
+                        <option>69</option>
+                        <option>99</option>
+                        <option>100</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[10/15]</div>
+                    <label>Favorite Emoji:</label>
+                    <select name="favoriteEmoji" required>
+                        <option value="">-- SELECT EMOJI --</option>
+                        <option>😎</option>
+                        <option>😂</option>
+                        <option>😍</option>
+                        <option>🤔</option>
+                        <option>🥳</option>
+                        <option>😭</option>
+                        <option>😴</option>
+                        <option>👽</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[11/15]</div>
+                    <label>Favorite Season:</label>
+                    <select name="favoriteSeason" required>
+                        <option value="">-- SELECT SEASON --</option>
+                        <option>Spring</option>
+                        <option>Summer</option>
+                        <option>Autumn</option>
+                        <option>Winter</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[12/15]</div>
+                    <label>Superpower:</label>
+                    <select name="superpower" required>
+                        <option value="">-- SELECT POWER --</option>
+                        <option>Invisibility</option>
+                        <option>Flight</option>
+                        <option>Time Travel</option>
+                        <option>Telepathy</option>
+                        <option>Super Speed</option>
+                        <option>Shapeshifting</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[13/15]</div>
+                    <label>Self-Description (One Word):</label>
+                    <select name="oneWord" required>
+                        <option value="">-- SELECT WORD --</option>
+                        <option>Creative</option>
+                        <option>Funny</option>
+                        <option>Chill</option>
+                        <option>Curious</option>
+                        <option>Adventurous</option>
+                        <option>Kind</option>
+                        <option>Smart</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[14/15]</div>
+                    <label>Spirit Vegetable:</label>
+                    <select name="spiritVegetable" required>
+                        <option value="">-- SELECT VEGETABLE --</option>
+                        <option>Carrot</option>
+                        <option>Broccoli</option>
+                        <option>Potato</option>
+                        <option>Pumpkin</option>
+                        <option>Tomato</option>
+                        <option>Cucumber</option>
+                        <option>Eggplant</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">[15/15]</div>
+                    <label>Favorite Color:</label>
+                    <select name="favoriteColor" required>
+                        <option value="">-- SELECT COLOR --</option>
+                        <option>Red</option>
+                        <option>Blue</option>
+                        <option>Green</option>
+                        <option>Yellow</option>
+                        <option>Purple</option>
+                        <option>Pink</option>
+                        <option>Black</option>
+                        <option>White</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="submit-section">
+                    <button type="submit" class="retro-button">
+                        >>> SAVE ANSWERS TO DISK <<<
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
     <script src="quiz.js"></script>
 </body>

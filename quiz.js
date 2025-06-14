@@ -1,39 +1,69 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('quiz-form');
+    const colorInput = form.elements['favoriteColor'];
+    const colorDisplay = document.getElementById('colorDisplay');
     const decimalRange = form.elements['decimalNumber'];
-    const decimalOutput = form.elements['decimalOutput'];
+    const decimalOutput = document.getElementById('decimalOutput');
     const luckyRange = form.elements['luckyNumber'];
-    const luckyOutput = form.elements['luckyOutput'];
+    const luckyOutput = document.getElementById('luckyOutput');
 
-    // Sync output with range
-    decimalRange.addEventListener('input', function () {
-        decimalOutput.value = parseFloat(decimalRange.value).toFixed(3);
-    });
-    luckyRange.addEventListener('input', function () {
-        luckyOutput.value = luckyRange.value;
+    // Color picker display
+    colorInput.addEventListener('input', function() {
+        colorDisplay.textContent = colorInput.value.toUpperCase();
+        colorDisplay.style.color = colorInput.value;
     });
 
-    form.addEventListener('submit', function (e) {
+    // Decimal slider
+    decimalRange.addEventListener('input', function() {
+        decimalOutput.textContent = parseFloat(decimalRange.value).toFixed(3);
+    });
+
+    // Lucky number slider
+    luckyRange.addEventListener('input', function() {
+        luckyOutput.textContent = luckyRange.value;
+    });
+
+    // Form submission
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
-        const data = {};
-        Array.from(form.elements).forEach(el => {
-            if (el.name) {
-                if (el.type === 'range' && el.name === 'decimalNumber') {
-                    data[el.name] = parseFloat(el.value).toFixed(3);
-                } else {
-                    data[el.name] = el.value;
-                }
+        
+        const answers = {};
+        const formData = new FormData(form);
+        
+        for (let [key, value] of formData.entries()) {
+            if (key === 'decimalNumber') {
+                answers[key] = parseFloat(value).toFixed(3);
+            } else {
+                answers[key] = value;
             }
-        });
-        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        }
+
+        // Add metadata
+        answers._metadata = {
+            timestamp: new Date().toISOString(),
+            type: 'birthday_quiz_answers',
+            version: '1.0'
+        };
+
+        // Create and download JSON file
+        const jsonData = JSON.stringify(answers, null, 2);
+        const blob = new Blob([jsonData], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
+        
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'birthday_quiz_answers.json';
+        a.download = `birthday_quiz_answers_${new Date().getTime()}.json`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-        alert('Your answers have been saved!');
+
+        // Show success message
+        alert('>>> ANSWERS SAVED TO DISK! <<<\n\nFile downloaded successfully!');
     });
+
+    // Initialize displays
+    colorDisplay.textContent = colorInput.value.toUpperCase();
+    decimalOutput.textContent = parseFloat(decimalRange.value).toFixed(3);
+    luckyOutput.textContent = luckyRange.value;
 });

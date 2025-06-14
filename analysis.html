@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ ANALYZER v1.0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <span class="terminal-title">>>> QUIZ_ANALYZER.EXE <<<</span>
+            <div class="terminal-buttons">
+                <span class="btn-close">X</span>
+            </div>
+        </div>
+        <div class="terminal-content">
+            <div class="ascii-art">
+╔═══════════════════════════════════╗<br>
+║    📊 QUIZ RESULTS ANALYZER 📊   ║<br>
+║       WHO KNOWS BEST? v1.0        ║<br>
+╚═══════════════════════════════════╝
+            </div>
+
+            <div class="analysis-section">
+                <div class="input-section">
+                    <label for="birthdayAnswers">Birthday Person's Answers (JSON):</label>
+                    <textarea id="birthdayAnswers" placeholder='Paste the birthday person\'s JSON here...'></textarea>
+                    
+                    <label for="guessesList">All Guesses (one JSON per line):</label>
+                    <textarea id="guessesList" placeholder='Paste each friend\'s guess JSON on a new line...'></textarea>
+                    
+                    <button id="analyzeBtn" class="retro-button">
+                        >>> ANALYZE RESULTS <<<
+                    </button>
+                </div>
+
+                <div id="results" class="results-section" style="display: none;">
+                    <h3>>>> ANALYSIS RESULTS <<<</h3>
+                    <div id="scoreboard"></div>
+                    <div id="detailedResults"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="analysis.js"></script>
+</body>
+</html>
