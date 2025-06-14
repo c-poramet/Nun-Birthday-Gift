@@ -62,46 +62,41 @@
     <div class="question-block">
         <div class="question-number">[04/15]</div>
         <label>Introvert vs Extrovert (Y) / Planning vs Flexibility (X):</label>
-        <div class="coordinate-question">
-            <label class="axis-label">Planning <input type="range" name="planFlexX" min="0" max="1" step="0.01" value="0.5"> Flexibility</label>
-            <label class="axis-label">Introvert <input type="range" name="introExtroY" min="0" max="1" step="0.01" value="0.5"> Extrovert</label>
-        </div>
+        <div class="coordinate-plane" data-x="planFlexX" data-y="introExtroY" data-xlabel-left="Planning" data-xlabel-right="Flexibility" data-ylabel-top="Introvert" data-ylabel-bottom="Extrovert"></div>
+        <input type="hidden" name="planFlexX" required>
+        <input type="hidden" name="introExtroY" required>
     </div>
 
     <div class="question-block">
         <div class="question-number">[05/15]</div>
         <label>Logic vs Emotion (Y) / Order vs Chaos (X):</label>
-        <div class="coordinate-question">
-            <label class="axis-label">Order <input type="range" name="orderChaosX" min="0" max="1" step="0.01" value="0.5"> Chaos</label>
-            <label class="axis-label">Logic <input type="range" name="logicEmotionY" min="0" max="1" step="0.01" value="0.5"> Emotion</label>
-        </div>
+        <div class="coordinate-plane" data-x="orderChaosX" data-y="logicEmotionY" data-xlabel-left="Order" data-xlabel-right="Chaos" data-ylabel-top="Logic" data-ylabel-bottom="Emotion"></div>
+        <input type="hidden" name="orderChaosX" required>
+        <input type="hidden" name="logicEmotionY" required>
     </div>
 
     <div class="question-block">
         <div class="question-number">[06/15]</div>
         <label>Optimist vs Realist (Y) / Leader vs Supporter (X):</label>
-        <div class="coordinate-question">
-            <label class="axis-label">Leader <input type="range" name="leaderSupportX" min="0" max="1" step="0.01" value="0.5"> Supporter</label>
-            <label class="axis-label">Optimist <input type="range" name="optimistRealistY" min="0" max="1" step="0.01" value="0.5"> Realist</label>
-        </div>
+        <div class="coordinate-plane" data-x="leaderSupportX" data-y="optimistRealistY" data-xlabel-left="Leader" data-xlabel-right="Supporter" data-ylabel-top="Optimist" data-ylabel-bottom="Realist"></div>
+        <input type="hidden" name="leaderSupportX" required>
+        <input type="hidden" name="optimistRealistY" required>
     </div>
 
     <div class="question-block">
         <div class="question-number">[07/15]</div>
         <label>Risk-Taker vs Cautious (Y) / Fast vs Thorough (X):</label>
-        <div class="coordinate-question">
-            <label class="axis-label">Fast <input type="range" name="fastThoroughX" min="0" max="1" step="0.01" value="0.5"> Thorough</label>
-            <label class="axis-label">Risk-Taker <input type="range" name="riskCautiousY" min="0" max="1" step="0.01" value="0.5"> Cautious</label>
-        </div>
+        <div class="coordinate-plane" data-x="fastThoroughX" data-y="riskCautiousY" data-xlabel-left="Fast" data-xlabel-right="Thorough" data-ylabel-top="Risk-Taker" data-ylabel-bottom="Cautious"></div>
+        <input type="hidden" name="fastThoroughX" required>
+        <input type="hidden" name="riskCautiousY" required>
     </div>
 
     <div class="question-block">
         <div class="question-number">[08/15]</div>
         <label>Minimalist vs Collector (Y) / Techie vs Nature-Lover (X):</label>
-        <div class="coordinate-question">
-            <label class="axis-label">Techie <input type="range" name="techNatureX" min="0" max="1" step="0.01" value="0.5"> Nature-Lover</label>
-            <label class="axis-label">Minimalist <input type="range" name="minCollectorY" min="0" max="1" step="0.01" value="0.5"> Collector</label>
-        </div>
+        <div class="coordinate-plane" data-x="techNatureX" data-y="minCollectorY" data-xlabel-left="Techie" data-xlabel-right="Nature-Lover" data-ylabel-top="Minimalist" data-ylabel-bottom="Collector"></div>
+        <input type="hidden" name="techNatureX" required>
+        <input type="hidden" name="minCollectorY" required>
     </div>
 
     <div class="question-block">

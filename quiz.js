@@ -71,6 +71,114 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('>>> ANSWERS SAVED TO DISK! <<<\n\nFile downloaded successfully!');
     });
 
+    // --- Coordinate Plane Logic ---
+    function setupCoordinatePlanes() {
+        document.querySelectorAll('.coordinate-plane').forEach(function(plane) {
+            // Settings
+            const width = 220, height = 220, margin = 24;
+            const xName = plane.dataset.x;
+            const yName = plane.dataset.y;
+            const xLabelLeft = plane.dataset.xlabelLeft;
+            const xLabelRight = plane.dataset.xlabelRight;
+            const yLabelTop = plane.dataset.ylabelTop;
+            const yLabelBottom = plane.dataset.ylabelBottom;
+            // Create canvas
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            canvas.style.background = '#181824';
+            canvas.style.border = '2px solid #00ff41';
+            canvas.style.borderRadius = '8px';
+            canvas.style.display = 'block';
+            canvas.style.margin = '0 auto 8px auto';
+            plane.appendChild(canvas);
+            // Labels
+            const labelRow = document.createElement('div');
+            labelRow.style.display = 'flex';
+            labelRow.style.justifyContent = 'space-between';
+            labelRow.style.margin = '0 2px 2px 2px';
+            labelRow.style.fontSize = '12px';
+            labelRow.innerHTML = `<span style="color:#00ffff">${xLabelLeft}</span><span style="color:#00ffff">${xLabelRight}</span>`;
+            plane.appendChild(labelRow);
+            const labelCol = document.createElement('div');
+            labelCol.style.display = 'flex';
+            labelCol.style.justifyContent = 'space-between';
+            labelCol.style.margin = '0 2px 2px 2px';
+            labelCol.style.fontSize = '12px';
+            labelCol.innerHTML = `<span style="color:#ff00ff">${yLabelTop}</span><span style="color:#ff00ff">${yLabelBottom}</span>`;
+            labelCol.style.flexDirection = 'column';
+            labelCol.style.height = '0px'; // just for semantics
+            // Hidden inputs
+            const xInput = plane.parentElement.querySelector(`input[name='${xName}']`);
+            const yInput = plane.parentElement.querySelector(`input[name='${yName}']`);
+            // Initial values
+            let x = 0.5, y = 0.5;
+            xInput.value = x;
+            yInput.value = y;
+            // Draw function
+            function draw() {
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, width, height);
+                // Draw grid
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                for (let i = 1; i < 4; i++) {
+                    ctx.beginPath();
+                    ctx.moveTo(i * width / 4, 0);
+                    ctx.lineTo(i * width / 4, height);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(0, i * height / 4);
+                    ctx.lineTo(width, i * height / 4);
+                    ctx.stroke();
+                }
+                // Draw point
+                const px = x * width;
+                const py = y * height;
+                ctx.beginPath();
+                ctx.arc(px, py, 10, 0, 2 * Math.PI);
+                ctx.fillStyle = '#ff00ff';
+                ctx.shadowColor = '#00ffff';
+                ctx.shadowBlur = 8;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+            draw();
+            // Drag logic
+            let dragging = false;
+            function setFromEvent(e) {
+                const rect = canvas.getBoundingClientRect();
+                let cx = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+                let cy = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+                x = Math.max(0, Math.min(1, cx / width));
+                y = Math.max(0, Math.min(1, cy / height));
+                xInput.value = x.toFixed(3);
+                yInput.value = y.toFixed(3);
+                draw();
+            }
+            canvas.addEventListener('mousedown', function(e) {
+                dragging = true;
+                setFromEvent(e);
+            });
+            canvas.addEventListener('touchstart', function(e) {
+                dragging = true;
+                setFromEvent(e);
+            });
+            window.addEventListener('mousemove', function(e) {
+                if (dragging) setFromEvent(e);
+            });
+            window.addEventListener('touchmove', function(e) {
+                if (dragging) setFromEvent(e);
+            });
+            window.addEventListener('mouseup', function() { dragging = false; });
+            window.addEventListener('touchend', function() { dragging = false; });
+        });
+    }
+    setupCoordinatePlanes();
+
     // Initialize displays
     colorDisplay.textContent = colorInput.value.toUpperCase();
     numberOutput.textContent = parseFloat(numberSlider.value).toFixed(3);
